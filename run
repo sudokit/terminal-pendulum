@@ -1,0 +1,11 @@
+# cmake ..
+[ ! -d "build" ] && mkdir build && cmake -Bbuild -H. -GNinja
+cd build
+# cmake -Bbuild -H. -GNinja ..
+# mak   e -j12
+ninja -t compdb > compile_commands.json
+if cmake --build .; then
+	./termpend
+fi
+# echo '\n'
+cd ..
